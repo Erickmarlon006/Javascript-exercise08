@@ -1,0 +1,25 @@
+ td,th{
+    border: 1px solid black;
+    
+}
+table{
+    border-collapse: collapse;
+}
+thead tr{
+    background-color: yellow;
+}
+.aprovado td{
+    background-color: greenyellow;
+
+}
+.reprovado td{
+    background-color: tomato;
+}
+td, th{
+    text-align: center;
+    padding: 5px;
+}
+thead tr th:first-of-type{
+    background-color: white;
+    border: none;
+}

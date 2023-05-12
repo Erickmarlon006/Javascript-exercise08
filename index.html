@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletim</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Boletim</h1>
+    </header>
+    <table id="tabela">
+
+        <thead>
+            <tr>
+                <th></th>
+                <th>Nome</th>
+                <th>1º trimestre</th>
+                <th>2º trimestre</th>
+                <th>3º trimestre</th>
+                <th>Nota final</th>
+                <th>Frequência</th>
+            </tr>
+        </thead>
+        <tbody id="area-dados">
+
+        </tbody >
+    </table>
+</body>
+</html>
+<script type="text/javascript">
+    var tabela = document.querySelector("#area-dados");
+    console.log(tabela.innerHTML);
+     
+    listaDeAlunos.forEach(function(aluno, index){
+    console.log(aluno);
+
+    var media = (parseFloat(aluno['n1']) + parseFloat(aluno['n2']) + parseFloat(aluno['n3'])) / 3;
+
+    if(media >= 7 && parseFloat(aluno['freq']) > 70){
+        var dados = "<tr class='aprovado'>";
+    }else{
+        var dados = "<tr class='reprovado'>";
+    }
+
+    //nova linha na tabela
+    
+    dados += "<td>" + (index+1) + "</td>" 
+    dados += "<td>" + aluno['nome'].toUpperCase() + "</td>";
+    dados += "<td>" + parseFloat(aluno['n1']) + "</td>";
+    dados += "<td>" + parseFloat(aluno['n2']) + "</td>";
+    dados += "<td>" + parseFloat(aluno['n3']) + "</td>";
+    dados += "<td>" + media.toFixed(2) + "</td>";
+    dados += "<td>" + aluno['freq'] + "%</td>";
+    
+
+    //fechando a linha da tabela
+    dados += "</tr>";
+    tabela.innerHTML += dados;
+
+    
+
+})
+</script>
